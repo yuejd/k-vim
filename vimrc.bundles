@@ -741,7 +741,8 @@ endif
 
 
     " nerdtreetabs
-    map <Leader>n <plug>NERDTreeTabsToggle<CR>
+    "map <Leader>n <plug>NERDTreeTabsToggle<CR>
+    map <Leader>j <plug>NERDTreeTabsToggle<CR>
     " 关闭同步
     " let g:nerdtree_tabs_synchronize_view=0
     " let g:nerdtree_tabs_synchronize_focus=0
@@ -764,7 +765,8 @@ endif
 
 " 标签导航
 " tagbar {{{
-    nmap <F9> :TagbarToggle<CR>
+    "nmap <F9> :TagbarToggle<CR>
+    nmap <Leader>k :TagbarToggle<CR>
     let g:tagbar_autofocus = 1
     " let g:tagbar_autoshowtag = 1
     " let g:tagbar_show_visibility = 1
@@ -825,7 +827,7 @@ endif
 
     let g:quickrun_no_default_key_mappings = 1
     nmap <Leader>r <Plug>(quickrun)
-    map <F10> :QuickRun<CR>
+    "map <F10> :QuickRun<CR>
 " }}}
 
 
