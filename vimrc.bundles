@@ -396,7 +396,9 @@ if has_key(g:plugs, 'ale')
     nmap <silent> <Leader>ep <Plug>(ale_previous_wrap)
     nmap <silent> <Leader>en <Plug>(ale_next_wrap)
 
-    nnoremap <silent> <Leader>ec :ALEToggle<CR>
+    " nnoremap <silent> <Leader>ec :ALEToggle<CR>
+    " nnoremap <silent> <Leader>e :ALEToggle<CR>
+    nnoremap <silent><C-l> :ALEToggle<CR>
 
     " troggle quickfix list
     function! ToggleErrors()

@@ -118,18 +118,18 @@ autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript tabstop=2
 au BufNewFile,BufRead *.py,*.pyw setf	python
 " let g:neocomplcache_enable_at_startup = 1
 
-function! CHANGE_CURR_DIR()
-	let _dir = expand("%:p:h")
-	exec "cd " . _dir
-	unlet _dir
-endfunction
-autocmd BufEnter * call CHANGE_CURR_DIR()
+" function! CHANGE_CURR_DIR()
+	" let _dir = expand("%:p:h")
+	" exec "cd " . _dir
+	" unlet _dir
+" endfunction
+" autocmd BufEnter * call CHANGE_CURR_DIR()
 
 set t_Co=256
 lan en_US.UTF-8
 
 ""switch number on or off
-nnoremap <C-n> :set invnu<CR>
+nnoremap <silent><C-n> :set invnu<CR>
 set completeopt=longest,menu
 set wildmenu
 " set wildignore=*.o,*~,*.pyc,*.class
@@ -289,6 +289,7 @@ EOF
 set hidden
 set wildmode=list:longest
 set ttyfast
+nnoremap <leader>v V`}
 
 
 " colorscheme solarized
