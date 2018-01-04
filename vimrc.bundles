@@ -46,6 +46,8 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 " 迄今为止用到的最好的自动VIM自动补全插件
 " 重启 :YcmRestartServer
 Plug 'Valloric/YouCompleteMe'
+" use completor plugin instead
+" Plug 'maralla/completor.vim'
 " 自动补全单引号，双引号等
 Plug 'Raimondi/delimitMate'
 " 自动补全html/xml标签
@@ -160,11 +162,11 @@ Plug 'kana/vim-textobj-entire'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
 Plug 'kana/vim-textobj-indent'
 
-if count(g:bundle_groups, 'tmux')
-    " tmux
-    " For tmux navigator Ctrl-hjkl
-    Plug 'christoomey/vim-tmux-navigator'
-endif
+"if count(g:bundle_groups, 'tmux')
+"    " tmux
+"    " For tmux navigator Ctrl-hjkl
+"    Plug 'christoomey/vim-tmux-navigator'
+"endif
 
 if count(g:bundle_groups, 'markdown')
     Plug 'plasticboy/vim-markdown', {'for': 'md'}
@@ -435,9 +437,11 @@ endif
     "let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
 
     " 跳转到定义处, 分屏打开
-    let g:ycm_goto_buffer_command = 'horizontal-split'
+    " let g:ycm_goto_buffer_command = 'horizontal-split'
+    let g:ycm_goto_buffer_command = 'vertical-split'
     let g:ycm_register_as_syntastic_checker = 0
     " nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+    let g:ycm_python_binary_path = 'python'
     nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
     nnoremap <leader>gd :YcmCompleter GoToDeclaration<CR>
 
@@ -460,6 +464,9 @@ endif
         \}
 " }}}
 
+" completor {{{
+"    let g:completor_python_binary = '/usr/local/lib/python2.7/dist-packages/jedi'
+" }}}
 
 " ultisnips {{{
     let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -631,8 +638,8 @@ endif
         \ "tabb"  : "T",
         \ "prevw" : "p",
         \ "quit"  : "q",
-        \ "next"  : "<C-J>",
-        \ "prev"  : "<C-K>",
+        \ "next"  : "j",
+        \ "prev"  : "k",
         \ "pquit" : "q",
         \ }
 " }}}
@@ -661,7 +668,9 @@ endif
 " }}}
 
 " gundo {{{
-    noremap <leader>h :GundoToggle<CR>
+    " noremap <leader>h :GundoToggle<CR>
+    " nnoremap <Leader>h :GundoToggle<CR>
+    nnoremap <C-h> :GundoToggle<CR>
 " }}}
 
 " ################### 显示增强 ###################
@@ -736,13 +745,14 @@ endif
     "close vim if the only window left open is a NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
     " s/v 分屏打开文件
-    let g:NERDTreeMapOpenSplit = 's'
-    let g:NERDTreeMapOpenVSplit = 'v'
+    " let g:NERDTreeMapOpenSplit = 's'
+    " let g:NERDTreeMapOpenVSplit = 'v'
 
-
+    let g:NERDTreeMapJumpNextSibling = ''
     " nerdtreetabs
     "map <Leader>n <plug>NERDTreeTabsToggle<CR>
-    map <Leader>j <plug>NERDTreeTabsToggle<CR>
+    "nnoremap <Leader>j <plug>NERDTreeTabsToggle<CR>
+    nnoremap <C-j> :NERDTreeTabsToggle<CR>
     " 关闭同步
     " let g:nerdtree_tabs_synchronize_view=0
     " let g:nerdtree_tabs_synchronize_focus=0
@@ -766,7 +776,8 @@ endif
 " 标签导航
 " tagbar {{{
     "nmap <F9> :TagbarToggle<CR>
-    nmap <Leader>k :TagbarToggle<CR>
+    "nnoremap <Leader>k :TagbarToggle<CR>
+    nnoremap <C-k> :TagbarToggle<CR>
     let g:tagbar_autofocus = 1
     " let g:tagbar_autoshowtag = 1
     " let g:tagbar_show_visibility = 1
