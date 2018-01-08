@@ -147,6 +147,8 @@ Plug 'tomasr/molokai'
 " nav
 " nerdtree nerdtreetabs
 Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
+" nerdtree git
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " ctrlspace
 Plug 'vim-ctrlspace/vim-ctrlspace'
 " tagbar
@@ -167,6 +169,9 @@ Plug 'kana/vim-textobj-indent'
 "    " For tmux navigator Ctrl-hjkl
 "    Plug 'christoomey/vim-tmux-navigator'
 "endif
+"
+" for vim debug
+Plug 'joonty/vdebug'
 
 if count(g:bundle_groups, 'markdown')
     Plug 'plasticboy/vim-markdown', {'for': 'md'}
@@ -469,6 +474,22 @@ endif
 " completor {{{
 "    let g:completor_python_binary = '/usr/local/lib/python2.7/dist-packages/jedi'
 " }}}
+"
+" vdebug {{{
+    let g:vdebug_keymap = {
+    \    "run" : "<F5>",
+    \    "run_to_cursor" : "<F6>",
+    \    "step_over" : "<F8>",
+    \    "step_into" : "<F7>",
+    \    "step_out" : "<F9>",
+    \    "close" : "<F3>",
+    \    "detach" : "<F2>",
+    \    "set_breakpoint" : "<F10>",
+    \    "get_context" : "<F4>",
+    \    "eval_under_cursor" : "<F12>",
+    \    "eval_visual" : "<Leader>e",
+    \}
+" }}}
 
 " ultisnips {{{
     let g:UltiSnipsExpandTrigger       = "<tab>"
@@ -762,6 +783,21 @@ endif
     " thank to @ListenerRi, see https://github.com/wklken/k-vim/issues/165
     let g:nerdtree_tabs_open_on_console_startup=0
     let g:nerdtree_tabs_open_on_gui_startup=0
+" }}}
+
+" nerdtree git {{{
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 " }}}
 
 
