@@ -174,7 +174,12 @@ Plug 'kana/vim-textobj-indent'
 " Plug 'joonty/vdebug'
 
 if count(g:bundle_groups, 'markdown')
+    " Plug 'tpope/vim-markdown', {'for': 'md'}
+    Plug 'godlygeek/tabular', {'for': 'md'}
     Plug 'plasticboy/vim-markdown', {'for': 'md'}
+    "Plug 'suan/vim-instant-markdown', {'for': 'md'}
+    " Plug 'isnowfy/python-vim-instant-markdown', {'for': 'md'}
+    Plug 'iamcco/markdown-preview.vim'
     " https://github.com/suan/vim-instant-markdown
     " npm -g install instant-markdown-d
     " Plug 'suan/vim-instant-markdown'
