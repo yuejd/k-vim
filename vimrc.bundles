@@ -773,8 +773,8 @@ endif
     "close vim if the only window left open is a NERDTree
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
     " s/v 分屏打开文件
-    " let g:NERDTreeMapOpenSplit = 's'
-    " let g:NERDTreeMapOpenVSplit = 'v'
+    let g:NERDTreeMapOpenSplit = 's'
+    let g:NERDTreeMapOpenVSplit = 'v'
 
     let g:NERDTreeMapJumpNextSibling = ''
     " nerdtreetabs
